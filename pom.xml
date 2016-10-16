@@ -6,7 +6,7 @@
 	<artifactId>MavenDemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>qingyezhu study java</name>
+	<name>qingyezhu study Maven</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -131,6 +131,7 @@
 		<module>ThriftCommonDemo</module>
 		<module>ThriftClientDemo</module>
 		<module>ThriftServerDemo</module>
+		<module>SpringDemo</module>
 	</modules>
 
 </project>
