@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	<!-- 基于配置文件 -->
+
+	<bean id="userService" class="com.qingyezhu.spring.config.service.impl.UserServiceImpl"/>
+	
+	<bean id="user" class="com.qingyezhu.spring.config.model.User">
+		<property name="id" value="1"/>
+		<property name="nick" value="qingyezhu"/>
+		<property name="comments">
+			<list>
+				<value>A little spark kindles a great fire. 星星之火，可以燎原。</value>
+				<value>Money is the root of all evil. 金钱是万恶之源。 </value>
+				<value>Never judge by appearances. 人不可貌相。</value>
+				<value>No great loss without some small gain. 塞翁失马，安知非福。 </value>
+				<value>Nothing venture, nothing win (or have or gain). 不入虎穴，焉得虎子。 </value>
+			</list>
+		</property>
+	</bean>
+	
+</beans>
