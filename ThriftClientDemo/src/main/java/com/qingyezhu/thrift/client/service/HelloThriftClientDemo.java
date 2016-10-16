@@ -13,7 +13,7 @@ public class HelloThriftClientDemo {
 
 	private static final Logger logger = LoggerFactory.getLogger(HelloThriftClientDemo.class);
 
-	public static final String SERVER_IP = "10.10.53.136";
+	public static final String SERVER_IP = "localhost";
 	public static final int SERVER_PORT = 9091;
 	public static final int TIMEOUT = 30000;
 
