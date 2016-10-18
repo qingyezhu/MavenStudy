@@ -3,7 +3,6 @@ package com.qingyezhu.spring.config.service.impl;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +14,7 @@ public class UserServiceImpl implements UserService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 	
-	private static final List<User> list = new CopyOnWriteArrayList<User>();
+	private static final List<User> list = new ArrayList<User>();
 	
 	@Override
 	public boolean add(User user) {
