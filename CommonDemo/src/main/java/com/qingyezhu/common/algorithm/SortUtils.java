@@ -44,7 +44,7 @@ public class SortUtils {
 	/**
 	 * 二分查找，返回第一个大于key的位置<br/>
 	 * 数组arr的查找范围[fromIndex, toIndex)是升序的<br/>
-	 * 
+	 * 上界位置<br/>
 	 * @param arr
 	 * @param fromIndex
 	 * @param toIndex
@@ -62,14 +62,13 @@ public class SortUtils {
 				right = mid - 1;
 			}
 		}
-		System.out.println(left + "====" + right);
 		return left;
 	}
 
 	/**
 	 * 二分查找，返回最后一个小于key的位置<br/>
 	 * 数组arr的查找范围[fromIndex, toIndex)是升序的<br/>
-	 * 
+	 * 下界位置<br/>
 	 * @param arr
 	 * @param fromIndex
 	 * @param toIndex

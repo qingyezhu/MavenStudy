@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sun.media.sound.SoftTuning;
+
 public class SortUtilsTest {
 	private static final Logger logger = LoggerFactory.getLogger(SortUtilsTest.class);
 
@@ -81,6 +83,21 @@ public class SortUtilsTest {
 		};
 
 		testSort(callback);
+	}
+	
+	@Test
+	public void testUpperLower(){
+		int[] arr = {5,7,7,8,8,10};
+		searchRange(arr, 8);
+		searchRange(arr, 5);
+		searchRange(arr, 9);
+	}
+
+	private void searchRange(int[] arr, int key) {
+		int left = SortUtils.binarySearchLower(arr, 0, arr.length - 1, key),
+			right = SortUtils.binarySearchUpper(arr, 0, arr.length - 1, key);
+		logger.info("left={}, right={}, key={}", left, right, key);
+		
 	}
 
 }
