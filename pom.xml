@@ -150,7 +150,8 @@
 		<module>ThriftCommonDemo</module>
 		<module>ThriftClientDemo</module>
 		<module>ThriftServerDemo</module>
-		<module>SpringDemo</module>
+		<module>SpringDemo</module>    
+		<module>CommonDemo</module>
 	</modules>
 
 </project>
