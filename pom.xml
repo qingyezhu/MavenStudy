@@ -52,7 +52,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<!-- 用于子模块继承时，不需要写version -->
 	<dependencyManagement>
 		<dependencies>
@@ -119,11 +119,31 @@
 				<scope>test</scope>
 			</dependency>
 
+			<!-- mysql驱动包 -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.6</version>
+			</dependency>
+
 			<!-- 工具包 -->
 			<dependency>
 				<groupId>commons-lang</groupId>
 				<artifactId>commons-lang</artifactId>
 				<version>2.6</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>3.2.1</version>
+			</dependency>
+
+			<!-- JDBC简单的封装帮助类 -->
+			<dependency>
+				<groupId>commons-dbutils</groupId>
+				<artifactId>commons-dbutils</artifactId>
+				<version>1.6</version>
 			</dependency>
 
 			<!-- 用于HTTP请求 -->
@@ -150,7 +170,7 @@
 		<module>ThriftCommonDemo</module>
 		<module>ThriftClientDemo</module>
 		<module>ThriftServerDemo</module>
-		<module>SpringDemo</module>    
+		<module>SpringDemo</module>
 		<module>CommonDemo</module>
 	</modules>
 
