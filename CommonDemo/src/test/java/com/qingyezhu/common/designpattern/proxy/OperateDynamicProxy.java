@@ -34,6 +34,12 @@ public class OperateDynamicProxy implements InvocationHandler {
 	public OperateDynamicProxy(Object delegate) {
 		this.delegate = delegate;
 	}
+	
+	private static final OperateProxyFactory factory = new OperateProxyFactory();
+	
+	public static IOperate wrap(IOperate operate){
+		return factory.createIOperate(new OperateDynamicProxy(operate));
+	}
 
 	/**
 	 * 每次进行代理类的执行，都会调用invoke方法<br/>
@@ -47,10 +53,10 @@ public class OperateDynamicProxy implements InvocationHandler {
 		Object ret = null;
 		try {
 			// 可以在此处增加一些方法调用前的额外的一些处理，如权限校验等
-
+			logger.info("method before ......");
 			// 使用反射机制调用被代理类(委托类)的方法
 			ret = method.invoke(delegate, args);
-
+			logger.info("method end .......");
 			// 可以在此处增加一些方法调用后的额外的一些处理，如耗时统计等
 		} catch (Exception e) {
 			logger.error("catch error msg=" + e.getMessage(), e);

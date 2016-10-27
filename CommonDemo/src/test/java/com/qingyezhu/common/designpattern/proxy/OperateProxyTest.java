@@ -26,5 +26,19 @@ public class OperateProxyTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void testFactory(){
+		IOperate proxy;
+		try {
+			IOperate target = new OperateImpl();
+			//此时需要被代理类中有无参构造方法
+			proxy = OperateDynamicProxy.wrap(target);
+			proxy.work(101, "buhao");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

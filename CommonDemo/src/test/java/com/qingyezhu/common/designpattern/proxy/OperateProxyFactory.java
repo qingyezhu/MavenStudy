@@ -1,5 +1,6 @@
 package com.qingyezhu.common.designpattern.proxy;
 
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
 public class OperateProxyFactory {
@@ -30,5 +31,13 @@ public class OperateProxyFactory {
 		T t = (T) Proxy.newProxyInstance(clazz.getClassLoader(), clazz.getInterfaces(),
 				new OperateDynamicProxy(clazz.newInstance()));
 		return t;
+	}
+	
+	public IOperate createIOperate(InvocationHandler handler){
+		return newProxyInstance(IOperate.class, handler);
+	}
+	
+	public <T> T newProxyInstance(Class<T> type, InvocationHandler handler){
+		return type.cast(Proxy.newProxyInstance(handler.getClass().getClassLoader(), new Class<?>[]{type}, handler));
 	}
 }
