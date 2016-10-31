@@ -48,7 +48,8 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		List<User> src = new ArrayList<User>();
 		List<User> dest = list;
-		Collections.copy(dest, src);
+//		Collections.copy(dest, src);
+		Collections.copy(src, dest);
 		logger.info("dest={}", dest);
 		return dest;
 	}

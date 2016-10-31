@@ -118,6 +118,12 @@
 				<version>${org.springframework-version}</version>
 				<scope>test</scope>
 			</dependency>
+			<!-- spring aop -->
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>1.6.11</version>
+			</dependency>
 
 			<!-- mysql驱动包 -->
 			<dependency>

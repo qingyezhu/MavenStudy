@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 	<!-- 基于配置文件 -->
 
 	<bean id="userService" class="com.qingyezhu.spring.config.service.impl.UserServiceImpl"/>
@@ -43,5 +46,24 @@
 		<property name="id" value="2"/>
 		<property name="nick" value="hanmei"/>
 	</bean>	
+	
+	<!-- aop start -->
+	<bean id="userAspect" class="com.qingyezhu.spring.config.aop.UserAspect"/>
+	<!-- aop配置 -->
+	<aop:config proxy-target-class="true">
+		
+		<!-- 切入点：拦截的方法 -->
+		<aop:pointcut expression="execution(* com.qingyezhu.spring.config.service.impl.UserServiceImpl.*(..))" id="userPt"/>
+			
+		<!-- 切面 -->
+		<aop:aspect ref="userAspect">
+			<!-- 环绕通知 -->
+			<aop:around method="doAround" pointcut-ref="userPt"/>
+			
+			<aop:before method="doBefore" pointcut-ref="userPt"/>
+			<aop:after method="doAfter" pointcut-ref="userPt"/>
+			<aop:after-throwing method="doThrowing" throwing="ex" pointcut-ref="userPt"/>
+		</aop:aspect>
+	</aop:config>
 	
 </beans>

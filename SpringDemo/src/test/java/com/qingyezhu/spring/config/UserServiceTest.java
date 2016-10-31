@@ -36,7 +36,7 @@ public class UserServiceTest extends BaseUnitTest {
 		user1.setComments(Arrays.asList("h1", "a2", "c3"));
 		userService.remove(2);
 		
-		userService.add(user1);
+//		userService.add(user1);
 		
 		logger.info("UserList={}", userService.query());
 
