@@ -138,6 +138,12 @@
 				<artifactId>commons-collections</artifactId>
 				<version>3.2.1</version>
 			</dependency>
+			
+			<dependency>
+			    <groupId>com.google.guava</groupId>
+			    <artifactId>guava</artifactId>
+			    <version>19.0-rc2</version>
+			</dependency>
 
 			<!-- JDBC简单的封装帮助类 -->
 			<dependency>

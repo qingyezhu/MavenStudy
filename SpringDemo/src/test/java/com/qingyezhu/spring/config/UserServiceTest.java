@@ -39,5 +39,12 @@ public class UserServiceTest extends BaseUnitTest {
 		userService.add(user1);
 		
 		logger.info("UserList={}", userService.query());
+
+		User _user1 = getBean("_user1");
+		logger.info("User1={}", _user1);
+		
+		User _user2 = getBean("_user2");
+		logger.info("User2={}", _user2);
+		
 	}
 }

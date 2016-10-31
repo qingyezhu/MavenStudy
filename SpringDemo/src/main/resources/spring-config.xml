@@ -20,4 +20,28 @@
 		</property>
 	</bean>
 	
+	<bean id="parentUser" class="com.qingyezhu.spring.config.model.User" abstract="true">
+		<property name="id" value="0"/>
+		<property name="nick" value="hello"/>
+		<property name="comments">
+			<list>
+				<value>A little spark kindles a great fire. 星星之火，可以燎原。</value>
+				<value>Money is the root of all evil. 金钱是万恶之源。 </value>
+				<value>Never judge by appearances. 人不可貌相。</value>
+				<value>No great loss without some small gain. 塞翁失马，安知非福。 </value>
+				<value>Nothing venture, nothing win (or have or gain). 不入虎穴，焉得虎子。 </value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="_user1" parent="parentUser">
+		<property name="id" value="1"/>
+		<property name="nick" value="lili"/>
+	</bean>
+	
+	<bean id="_user2" parent="parentUser">
+		<property name="id" value="2"/>
+		<property name="nick" value="hanmei"/>
+	</bean>	
+	
 </beans>

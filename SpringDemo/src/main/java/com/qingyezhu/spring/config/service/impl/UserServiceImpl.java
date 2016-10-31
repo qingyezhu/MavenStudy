@@ -46,8 +46,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> query() {
 		// TODO Auto-generated method stub
-		List<User> dest = new ArrayList<User>();
-		List<User> src = list;
+		List<User> src = new ArrayList<User>();
+		List<User> dest = list;
 		Collections.copy(dest, src);
 		logger.info("dest={}", dest);
 		return dest;

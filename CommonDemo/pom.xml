@@ -60,6 +60,11 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 		</dependency>
+		
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		</dependency>
 
 		<!-- JDBC简单的封装帮助类 -->
 		<dependency>
