@@ -2,9 +2,10 @@ package com.qingyezhu.common.model;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang.builder.CompareToBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Animal implements Serializable, Cloneable {
+public class Animal implements Serializable, Cloneable, Comparable<Animal> {
 	/**
 	 * 
 	 */
@@ -81,7 +82,13 @@ public class Animal implements Serializable, Cloneable {
 	}
 
 	@Override
+	public int compareTo(Animal o) {
+		return new CompareToBuilder().append(id, o.id).append(name, o.name).toComparison();
+	}
+	
+	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
 	}
+
 }

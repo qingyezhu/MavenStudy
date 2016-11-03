@@ -23,6 +23,7 @@ public class ArrayListTest {
 		stringList.add("abc");
 		
 		logger.info("removeAll={}", integerList.removeAll(stringList));
+	
 	}
 	
 	@Test
@@ -55,5 +56,26 @@ public class ArrayListTest {
 		
 //		int[] tmpIntArr = integerList.toArray(intArr);//编译出错，需要的是基本类型的包装类
 		
+	}
+	
+	@Test
+	public void testRemoveFor(){		
+		List<Integer> integerList = new ArrayList<>();
+		integerList.add(1);
+		integerList.add(11);
+		integerList.add(12);
+		integerList.add(112);
+		
+		logger.info("remove before {}", integerList);
+		try {
+//			for (int i = 0, size = integerList.size(); i < size; i++) {//此时会数组越界
+				for (int i = 0, size = integerList.size(); i < integerList.size(); i++) {
+				if (integerList.get(i) == 11) {
+					integerList.remove(i);
+				}
+			}
+		} finally {
+			logger.info("remove after {}", integerList);
+		}
 	}
 }
