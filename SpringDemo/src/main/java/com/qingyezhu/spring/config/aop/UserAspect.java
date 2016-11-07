@@ -46,4 +46,8 @@ public class UserAspect {
 	public void doThrowing(JoinPoint jp, Throwable ex){
 		logger.info("exception------name={}, class={}, args={}, exception={}", new Object[]{jp.getSignature().getName(), jp.getTarget().getClass(), jp.getArgs(), ex.getMessage()});
 	}
+	
+	public void doReturning(JoinPoint jp){
+		logger.info("return-------name={}, class={}, args={}", new Object[]{jp.getSignature().getName(), jp.getTarget().getClass(), jp.getArgs()});
+	}
 }
