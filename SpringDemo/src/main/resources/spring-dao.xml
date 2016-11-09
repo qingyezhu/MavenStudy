@@ -11,7 +11,7 @@
 	
 	<bean id="dynamicDataSourceAspect" class="com.qingyezhu.spring.config.aop.DynamicDataSourceAspect"/>
 	<aop:config>
-		<aop:pointcut expression="execution(* com.qingyezhu.spring.config.mapper.*.Area*(..))" id="slavePt"/>
+		<aop:pointcut expression="execution(* com.qingyezhu.spring.config.mapper..AreaMapper.*(..))" id="slavePt"/>
 		<aop:aspect ref="dynamicDataSourceAspect">
 			<aop:before method="beforeDataSource" pointcut-ref="slavePt"/>
 			<aop:around method="aroundDataSource" pointcut-ref="slavePt"/>
