@@ -4,12 +4,20 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 初始化时的默认监听事件一直存在，访问时添加的监听都是一次性的；<br/>
+ * 创建节点，一次只能是一层不能多层一起创建<br/>
+ * 访问的节点必须是存在的，否则抛出异常<br/>
+ * @author zhuwang208531
+ *
+ */
 public class ZookeeperClient {
 	private static final Logger logger = LoggerFactory.getLogger(ZookeeperClient.class);
 
@@ -89,6 +97,16 @@ public class ZookeeperClient {
 		return stat != null;
 	}
 	
+	public boolean exists(String path, Watcher watcher){
+		Stat stat = null;
+		try {
+			zooKeeper.exists(path, watcher);
+		} catch (Exception e) {
+			logger.error("catch error msg=" + e.getMessage(), e);
+		}
+		return stat != null;
+	}
+	
 	public List<String> getChild(String path){
 		return getChild(path, true);
 	}
@@ -103,5 +121,4 @@ public class ZookeeperClient {
 		return list;
 	}
 	
-
 }
