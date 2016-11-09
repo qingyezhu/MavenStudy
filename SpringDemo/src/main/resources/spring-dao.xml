@@ -11,8 +11,9 @@
 	
 	<bean id="dynamicDataSourceAspect" class="com.qingyezhu.spring.config.aop.DynamicDataSourceAspect"/>
 	<aop:config>
-		<aop:pointcut expression="execution(* com.qingyezhu.spring.config.mapper.*.get(..))" id="slavePt"/>
+		<aop:pointcut expression="execution(* com.qingyezhu.spring.config.mapper.*.Area*(..))" id="slavePt"/>
 		<aop:aspect ref="dynamicDataSourceAspect">
+			<aop:before method="beforeDataSource" pointcut-ref="slavePt"/>
 			<aop:around method="aroundDataSource" pointcut-ref="slavePt"/>
 		</aop:aspect>
 	</aop:config>
@@ -43,5 +44,16 @@
 			</map>
 		</property>
 		<property name="defaultTargetDataSource" ref="dataSourceMaster"/>
+	</bean>
+	
+	<bean id="sqlSessionFactoryMapper" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dynamicDataSource"/>
+		<property name="typeAliasesPackage" value="com.qingyezhu.spring.config.model"/>
+		<property name="mapperLocations" value="classpath*:mapper/*.xml"/>
+	</bean>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.qingyezhu.spring.config.mapper"/>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryMapper"/>
 	</bean>
 </beans>
