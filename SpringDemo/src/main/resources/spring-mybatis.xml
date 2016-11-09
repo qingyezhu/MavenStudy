@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	
+	<context:property-placeholder location="classpath:jdbc.properties" file-encoding="utf-8" ignore-unresolvable="true"/>
+	
+	<bean id="dataSourceParent" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" abstract="true">
+		<property name="driverClass" value="${driverClass}" />
+		<property name="maxIdleTime" value="${maxIdleTime}"/>
+		<property name="idleConnectionTestPeriod" value="${idleConnectionTestPeriod}" />
+	</bean>
+	
+	<bean id="dataSourceMaster" parent="dataSourceParent">
+		<property name="jdbcUrl" value="${master.url}" />
+		<property name="user" value="${master.username}" />
+		<property name="password" value="${master.password}" />
+	</bean>
+	
+	<bean id="dataSourceSlave" parent="dataSourceParent">
+		<property name="jdbcUrl" value="${slave.url}" />
+		<property name="user" value="${slave.username}" />
+		<property name="password" value="${slave.password}" />
+	</bean>
+	
+	<bean id="sqlSessionFactoryMaster" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceMaster"/>
+		<property name="typeAliasesPackage" value="com.qingyezhu.spring.config.model"/>
+		<property name="mapperLocations" value="classpath*:mapper/*.xml"/>
+	</bean>
+	
+	<bean id="baseMapperMaster" class="org.mybatis.spring.mapper.MapperFactoryBean" abstract="true">
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryMaster"/>
+	</bean>
+	<bean id="userMapper" parent="baseMapperMaster">
+		<property name="mapperInterface" value="com.qingyezhu.spring.config.mapper.UserMapper"/>
+	</bean>
+	
+	<bean id="sqlSessionFactorySlave" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceSlave"/>
+		<property name="typeAliasesPackage" value="com.qingyezhu.spring.config.model"/>
+		<property name="mapperLocations" value="classpath*:mapper/*.xml"/>
+	</bean>
+	<bean id="baseMapperSlave" class="org.mybatis.spring.mapper.MapperFactoryBean" abstract="true">
+		<property name="sqlSessionFactory" ref="sqlSessionFactorySlave"/>
+	</bean>
+	<bean id="areaMapper" parent="baseMapperSlave">
+		<property name="mapperInterface" value="com.qingyezhu.spring.config.mapper.AreaMapper"/>
+	</bean>
+	
+</beans>
