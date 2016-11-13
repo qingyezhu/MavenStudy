@@ -46,7 +46,19 @@ public class SortUtilsTest {
 		};
 		testSort(callback);
 	}
+	
+	@Test
+	public void testDirectInsertSort1(){
+		SortCallback callback = new SortCallback() {
 
+			@Override
+			public void sort(int[] arr) {
+				SortUtils.directInsertSort(arr, 0, arr.length);
+			}
+		};
+		testSort(callback);
+	}
+	
 	@Test
 	public void testBinaryInsertSort() {
 		SortCallback callback = new SortCallback() {

@@ -23,6 +23,25 @@ public class SortUtils {
 			arr[j + 1] = tmp;
 		}
 	}
+	
+	public static void directInsertSort(int[] arr, int fromIndex, int toIndex){
+		if(fromIndex < 0 || toIndex < 0 || toIndex < fromIndex || ArrayUtils.isEmpty(arr) || toIndex > arr.length){
+			return ;
+		}
+		int left = fromIndex,
+			right = toIndex - 1;
+		
+		for(int i = left, j = i; i < right; j = ++i){
+			int tmp = arr[i + 1];
+			while(tmp < arr[j]){
+				arr[j + 1] = arr[j];
+				if(j -- == left){
+					break;
+				}
+			}
+			arr[j + 1] = tmp;
+		}
+	}
 
 	/**
 	 * 二分插入排序
