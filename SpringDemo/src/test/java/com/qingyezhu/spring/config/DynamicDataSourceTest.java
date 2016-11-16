@@ -13,10 +13,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.qingyezhu.spring.config.mapper.AreaMapper;
-import com.qingyezhu.spring.config.mapper.UserMapper;
-import com.qingyezhu.spring.config.model.Area;
-import com.qingyezhu.spring.config.model.User;
+import com.qingyezhu.spring.mapper.AreaMapper;
+import com.qingyezhu.spring.mapper.UserMapper;
+import com.qingyezhu.spring.model.Area;
+import com.qingyezhu.spring.model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring-dao.xml"})

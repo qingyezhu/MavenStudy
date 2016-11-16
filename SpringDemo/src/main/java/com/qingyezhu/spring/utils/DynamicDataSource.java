@@ -1,4 +1,4 @@
-package com.qingyezhu.spring.config.utils;
+package com.qingyezhu.spring.utils;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

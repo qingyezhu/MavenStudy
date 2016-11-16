@@ -9,9 +9,9 @@
 	
 	<context:property-placeholder location="classpath:jdbc.properties" file-encoding="utf-8" ignore-unresolvable="true"/>
 	
-	<bean id="dynamicDataSourceAspect" class="com.qingyezhu.spring.config.aop.DynamicDataSourceAspect"/>
+	<bean id="dynamicDataSourceAspect" class="com.qingyezhu.spring.aop.DynamicDataSourceAspect"/>
 	<aop:config>
-		<aop:pointcut expression="execution(* com.qingyezhu.spring.config.mapper..AreaMapper.*(..))" id="slavePt"/>
+		<aop:pointcut expression="execution(* com.qingyezhu.spring.mapper..AreaMapper.*(..))" id="slavePt"/>
 		<aop:aspect ref="dynamicDataSourceAspect">
 			<aop:before method="beforeDataSource" pointcut-ref="slavePt"/>
 			<aop:around method="aroundDataSource" pointcut-ref="slavePt"/>
@@ -36,7 +36,7 @@
 		<property name="password" value="${slave.password}" />
 	</bean>
 	
-	<bean id="dynamicDataSource" class="com.qingyezhu.spring.config.utils.DynamicDataSource">
+	<bean id="dynamicDataSource" class="com.qingyezhu.spring.utils.DynamicDataSource">
 		<property name="targetDataSources">
 			<map>
 				<entry key="master" value-ref="dataSourceMaster"/>
@@ -48,12 +48,12 @@
 	
 	<bean id="sqlSessionFactoryMapper" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dynamicDataSource"/>
-		<property name="typeAliasesPackage" value="com.qingyezhu.spring.config.model"/>
+		<property name="typeAliasesPackage" value="com.qingyezhu.spring.model"/>
 		<property name="mapperLocations" value="classpath*:mapper/*.xml"/>
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.qingyezhu.spring.config.mapper"/>
+		<property name="basePackage" value="com.qingyezhu.spring.mapper"/>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryMapper"/>
 	</bean>
 </beans>

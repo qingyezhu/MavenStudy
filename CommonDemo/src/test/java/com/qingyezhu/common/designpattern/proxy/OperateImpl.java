@@ -10,5 +10,10 @@ public class OperateImpl implements IOperate {
 	public void work(Integer id, String name) {
 		logger.info("time={}, id={}, name={}", new Object[]{System.currentTimeMillis(), id, name});
 	}
+	@Override
+	public final void operator(Long operatorId) {
+		System.out.println("operatorId:=" + operatorId);
+		logger.info("operatorId={}", operatorId);
+	}
 
 }

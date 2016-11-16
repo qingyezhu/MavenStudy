@@ -8,8 +8,8 @@ import org.junit.runners.BlockJUnit4ClassRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.qingyezhu.spring.config.model.User;
-import com.qingyezhu.spring.config.service.UserService;
+import com.qingyezhu.spring.model.User;
+import com.qingyezhu.spring.service.UserService;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class UserServiceTest extends BaseUnitTest {
@@ -36,15 +36,17 @@ public class UserServiceTest extends BaseUnitTest {
 		user1.setComments(Arrays.asList("h1", "a2", "c3"));
 		userService.remove(2);
 		
-//		userService.add(user1);
+		userService.add(user1);
 		
 		logger.info("UserList={}", userService.query());
 
-		User _user1 = getBean("_user1");
-		logger.info("User1={}", _user1);
-		
-		User _user2 = getBean("_user2");
-		logger.info("User2={}", _user2);
+//		User _user1 = getBean("_user1");
+//		logger.info("User1={}", _user1);
+//		
+//		User _user2 = getBean("_user2");
+//		logger.info("User2={}", _user2);
+		logger.info("update====");
+		logger.info("------update----{}", userService.update(1));
 		
 	}
 }

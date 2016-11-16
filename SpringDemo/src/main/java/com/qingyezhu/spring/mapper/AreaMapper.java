@@ -1,8 +1,8 @@
-package com.qingyezhu.spring.config.mapper;
+package com.qingyezhu.spring.mapper;
 
 import java.util.List;
 
-import com.qingyezhu.spring.config.model.Area;
+import com.qingyezhu.spring.model.Area;
 
 public interface AreaMapper {
 

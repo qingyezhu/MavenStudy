@@ -1,4 +1,4 @@
-package com.qingyezhu.spring.config.model;
+package com.qingyezhu.spring.model;
 
 import java.util.List;
 

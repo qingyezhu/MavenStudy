@@ -1,8 +1,8 @@
-package com.qingyezhu.spring.config.service;
+package com.qingyezhu.spring.service;
 
 import java.util.List;
 
-import com.qingyezhu.spring.config.model.User;
+import com.qingyezhu.spring.model.User;
 
 public interface UserService {
 	boolean add(User user);
@@ -10,4 +10,6 @@ public interface UserService {
 	boolean remove(Integer id);
 	
 	List<User> query();
+	
+	List<User> update(Integer id);
 }

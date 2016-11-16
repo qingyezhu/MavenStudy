@@ -146,6 +146,10 @@ public class SortUtils {
 	 * @param arr
 	 */
 	public static void quickSort(int[] arr) {
+		if (ArrayUtils.isEmpty(arr)) {
+			// 当数组为空或长度为0时，直接返回
+			return;
+		}
 		quickSort0(arr, 0, arr.length - 1);
 	}
 

@@ -1,17 +1,31 @@
-package com.qingyezhu.spring.config.aop;
+package com.qingyezhu.spring.aop;
 
 import java.util.Arrays;
 
 import org.apache.commons.lang.time.StopWatch;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-public class UserAspect {
+@Aspect
+@Component
+public class ServiceAspect {
 
-	private static final Logger logger = LoggerFactory.getLogger(UserAspect.class);
+	private static final Logger logger = LoggerFactory.getLogger(ServiceAspect.class);
+
+	@Pointcut("execution(* com.qingyezhu.spring..*.*(..))")
+//	@Pointcut("execution(* com.qingyezhu.spring.service.Handler*.*(..))")
+	public void handlerPointCut(){
+		
+	}
 	
+	@Before("handlerPointCut()")
 	public void doBefore(JoinPoint jp){
 		logger.info("before----name={}, class={}, args={}", new Object[]{jp.getSignature().getName(), jp.getTarget().getClass(), jp.getArgs()});
 	}
@@ -22,6 +36,7 @@ public class UserAspect {
 	 * @return
 	 * @throws Throwable 
 	 */
+	@Around("handlerPointCut()")
 	public Object doAround(ProceedingJoinPoint pjp) throws Throwable{
 		StopWatch clock = new StopWatch();
 		clock.start();

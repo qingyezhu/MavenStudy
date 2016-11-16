@@ -40,5 +40,18 @@ public class OperateProxyTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void testFinal(){
+		IOperate proxy;
+		try {
+			IOperate target = new OperateImpl();
+			//此时需要被代理类中有无参构造方法
+			proxy = OperateDynamicProxy.wrap(target);
+			proxy.operator(1010L);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

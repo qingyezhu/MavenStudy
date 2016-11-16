@@ -1,15 +1,18 @@
-package com.qingyezhu.spring.config.service.impl;
+package com.qingyezhu.spring.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
-import com.qingyezhu.spring.config.model.User;
-import com.qingyezhu.spring.config.service.UserService;
+import com.qingyezhu.spring.model.User;
+import com.qingyezhu.spring.service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -18,10 +21,11 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public boolean add(User user) {
-		// TODO Auto-generated method stub
 		boolean flag = false;
-		synchronized (list) {
-			flag = list.add(user);
+		if(user != null && user.getId() != null){
+			synchronized (list) {
+				flag = list.add(user);
+			}
 		}
 		logger.info("add user:{}, flag:{}", new Object[]{user, flag});
 		return flag;
@@ -29,16 +33,18 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean remove(Integer id) {
-		// TODO Auto-generated method stub
 		boolean flag = false;
-		synchronized (list) {
-			for(User user : list){
-				if(user.getId().equals(id)){
-					flag = list.remove(user);
-					break;
+		if(id != null){
+			synchronized (list) {
+				for(User user : list){
+					if(user.getId().equals(id)){
+						flag = list.remove(user);
+						break;
+					}
 				}
 			}
 		}
+		
 		logger.info("remove id:{}, flag:{}", new Object[]{id, flag});
 		return flag;
 	}
@@ -51,6 +57,21 @@ public class UserServiceImpl implements UserService {
 		Collections.copy(dest, src);
 		logger.info("dest={}", dest);
 		return dest;
+	}
+
+	@Override
+	public List<User> update(Integer id) {
+		if(id ==  null){
+			return Collections.emptyList();
+		}
+		synchronized (list) {
+			for(User user: list){
+				if(id.equals(user.getId())){
+					user.setAge(new Random().nextInt(100));
+				}
+			}
+		}
+		return query();
 	}
 
 }

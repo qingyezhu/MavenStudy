@@ -29,7 +29,7 @@
 	
 	<bean id="sqlSessionFactoryMaster" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSourceMaster"/>
-		<property name="typeAliasesPackage" value="com.qingyezhu.spring.config.model"/>
+		<property name="typeAliasesPackage" value="com.qingyezhu.spring.model"/>
 		<property name="mapperLocations" value="classpath*:mapper/*.xml"/>
 	</bean>
 	
@@ -37,19 +37,19 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactoryMaster"/>
 	</bean>
 	<bean id="userMapper" parent="baseMapperMaster">
-		<property name="mapperInterface" value="com.qingyezhu.spring.config.mapper.UserMapper"/>
+		<property name="mapperInterface" value="com.qingyezhu.spring.mapper.UserMapper"/>
 	</bean>
 	
 	<bean id="sqlSessionFactorySlave" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSourceSlave"/>
-		<property name="typeAliasesPackage" value="com.qingyezhu.spring.config.model"/>
+		<property name="typeAliasesPackage" value="com.qingyezhu.spring.model"/>
 		<property name="mapperLocations" value="classpath*:mapper/*.xml"/>
 	</bean>
 	<bean id="baseMapperSlave" class="org.mybatis.spring.mapper.MapperFactoryBean" abstract="true">
 		<property name="sqlSessionFactory" ref="sqlSessionFactorySlave"/>
 	</bean>
 	<bean id="areaMapper" parent="baseMapperSlave">
-		<property name="mapperInterface" value="com.qingyezhu.spring.config.mapper.AreaMapper"/>
+		<property name="mapperInterface" value="com.qingyezhu.spring.mapper.AreaMapper"/>
 	</bean>
 	
 </beans>

@@ -1,4 +1,4 @@
-package com.qingyezhu.spring.config.utils;
+package com.qingyezhu.spring.utils;
 
 public class DataSourceHolder {
 	public static final String DATA_SOURCE_MASTER = "master";
