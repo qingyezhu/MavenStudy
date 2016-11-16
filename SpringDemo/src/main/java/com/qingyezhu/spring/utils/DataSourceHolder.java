@@ -1,5 +1,8 @@
 package com.qingyezhu.spring.utils;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DataSourceHolder {
 	public static final String DATA_SOURCE_MASTER = "master";
 	public static final String DATA_SOURCE_SLAVE = "slave";
