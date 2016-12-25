@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.qingyezhu</groupId>
 	<artifactId>MavenDemo</artifactId>
@@ -13,6 +12,7 @@
 		<ch.qos.logback.core-version>1.0.13</ch.qos.logback.core-version>
 		<org.slf4j-version>1.7.12</org.slf4j-version>
 		<org.springframework-version>3.2.2.RELEASE</org.springframework-version>
+		<com.fasterxml.jackson.core-version>2.2.0</com.fasterxml.jackson.core-version>
 	</properties>
 
 	<build>
@@ -27,7 +27,7 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			<!-- 打包源代码 -->
+			<!-- 打包源代�? -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -53,7 +53,7 @@
 		</plugins>
 	</build>
 
-	<!-- 用于子模块继承时，不需要写version -->
+	<!-- 用于子模块继承时，不�?要写version -->
 	<dependencyManagement>
 		<dependencies>
 
@@ -66,13 +66,13 @@
 			</dependency>
 
 			<!-- slf4j日志门面 -->
-			<!-- slf4j-api是定义了一些日志接口 -->
+			<!-- slf4j-api是定义了�?些日志接�? -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>${org.slf4j-version}</version>
 			</dependency>
-			<!-- 由于是在原有commons-logging日志迁移到slf4j，故需要适配一下 -->
+			<!-- 由于是在原有commons-logging日志迁移到slf4j，故�?要�?�配�?�? -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>jcl-over-slf4j</artifactId>
@@ -80,7 +80,7 @@
 			</dependency>
 
 			<!-- logback日志实现 -->
-			<!-- 具体的日志接口实现 -->
+			<!-- 具体的日志接口实�? -->
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-core</artifactId>
@@ -116,6 +116,11 @@
 				<artifactId>spring-jdbc</artifactId>
 				<version>${org.springframework-version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${org.springframework-version}</version>
+			</dependency>
 			<!-- spring test -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -129,15 +134,34 @@
 				<artifactId>aspectjweaver</artifactId>
 				<version>1.6.11</version>
 			</dependency>
+			
+			<!-- jackson -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${com.fasterxml.jackson.core-version}</version>
+			</dependency>
 
-			<!-- mysql驱动包 -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${com.fasterxml.jackson.core-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${com.fasterxml.jackson.core-version}</version>
+			</dependency>
+
+			<!-- mysql驱动�? -->
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>5.1.6</version>
 			</dependency>
 
-			<!-- 工具包 -->
+			<!-- 工具�? -->
 			<dependency>
 				<groupId>commons-lang</groupId>
 				<artifactId>commons-lang</artifactId>
@@ -156,7 +180,7 @@
 			    <version>19.0-rc2</version>
 			</dependency>
 
-			<!-- JDBC简单的封装帮助类 -->
+			<!-- JDBC�?单的封装帮助�? -->
 			<dependency>
 				<groupId>commons-dbutils</groupId>
 				<artifactId>commons-dbutils</artifactId>
@@ -180,6 +204,22 @@
 				<artifactId>httpcore</artifactId>
 				<version>4.4.1</version>
 			</dependency>
+			
+			<dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+            </dependency>
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>2.2</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.1.2</version>
+			</dependency>
 		</dependencies>
 
 	</dependencyManagement>
@@ -189,6 +229,7 @@
 		<module>ThriftServerDemo</module>
 		<module>SpringDemo</module>
 		<module>CommonDemo</module>
+   	 	<module>SpringMVCDemo</module>
 	</modules>
 
 </project>

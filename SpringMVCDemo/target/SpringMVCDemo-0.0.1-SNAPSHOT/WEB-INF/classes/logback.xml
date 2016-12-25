@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- scan=true if chang,then reload, scanPeriod is the detection time. -->
+<configuration scan="true" scanPeriod="60 seconds">
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{80}.%method[%line] - %msg%n</pattern>
+		</encoder>
+	</appender>
+  
+	<appender name="qingyezhu-springmvc" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	  <!-- current file name -->
+	  <File>/data/weblogs/qingyezhu/qingyezhu-springmvc.log</File>
+	  <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	  	<fileNamePattern>/data/weblogs/qingyezhu/qingyezhu-springmvc.log.%d{yyyy-MM-dd_HH}</fileNamePattern>
+	  	<!-- expire logs hours ：7天-->
+	  	<maxHistory>168</maxHistory>
+	  </rollingPolicy>
+	  <encoder>
+	  	<!-- log pattern [current Time, thread name, logger level, logger name,define out]-->
+	    <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80}.%method[%line] - %msg%n</pattern>
+	  </encoder>
+	</appender>
+	
+	<root>
+		<level value="info"/>
+		<appender-ref ref="CONSOLE" />
+	</root>
+	
+	<logger name="com.qingyezhu.springmvc" additivity="false">
+		<level value="info" />
+        <appender-ref ref="qingyezhu-springmvc" />
+	</logger>
+
+	<logger name="org.springframework" additivity="false">
+		<level value="info" />
+        <appender-ref ref="qingyezhu-springmvc" />
+	</logger>
+	
+	<logger name="org.hibernate" additivity="false">
+		<level value="info" />
+        <appender-ref ref="qingyezhu-springmvc" />
+	</logger>
+	
+</configuration>

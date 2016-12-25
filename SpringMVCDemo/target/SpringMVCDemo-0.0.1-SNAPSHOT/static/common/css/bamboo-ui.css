@@ -1,0 +1,346 @@
+@CHARSET "UTF-8";
+.ui-state-default .ui-icon{
+  		background-image: url("/static/jquery/css/blitzer/images/ui-icons_004276_256x240.png");
+}
+
+.ui-icon { 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/static/jquery/css/blitzer/images/ui-icons_004276_256x240.png); 
+}
+
+.ui-widget-header {
+	background: #f6f6f6 url(/static/jquery/css/blitzer/images/ui-bg_highlight-hard_100_f6f6f6_1x100.png) 50% 50% repeat-x;
+	border: 1px solid #9bc2e0;
+	color: #222222;
+	font-weight: bold;
+}
+		
+a{
+	text-decoration: none;
+	color: #227dc5;
+}
+
+label, input{
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 20px;
+}
+
+input[type=text]{
+	border-radius: 4px; 
+	border: 1px solid #ccc;
+	background-color: #fff;
+	background-image: none;
+}
+
+select{
+	border-radius: 4px; 
+	border: 1px solid #ccc;
+	background-color: #fff;
+	background-image: none;
+}
+
+
+/*消息提示框样式*/
+.bamboo-tip-message{
+	position: fixed;
+	top: 0;
+	width: 22%;
+	margin-left: 70%;
+}
+
+.bamboo-tip-message-content{
+	padding:10px 0;
+	margin-bottom: 20px;
+	opacity: 1;
+	border-radius: 4px;
+	background-color: #ffffe1;
+	border: 1px solid #ebccd1;
+	text-align: center;
+}
+
+.bamboo-tip-message-msg{
+	color: #8c3901;
+}
+
+
+/*遮罩层样式*/
+.bamboo-mask-layer{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .8;
+	background-color: #777;
+}
+
+.bamboo-mask-layer-conent{
+	position: absolute;
+	left: 45%;
+	top: 45%;
+	padding: 10px;
+	border: 1px solid green;
+	box-shadow: 0 0 30px #44f;
+	border-radius: 8px;
+	background-color: #000;
+}
+
+.bamboo-mask-layer-msg{
+	display: inline-block;
+	vertical-align: top;
+	height: 32px;
+	line-height: 32px;
+	margin: 0 10px;
+	color: #fff;
+}
+
+.bamboo-mask-layer-img{
+	width: 32px;
+	height: 32px;
+}
+
+
+/*分页样式*/
+.bamboo-pagination{
+	font-size: 14px;
+}
+.bamboo-pagination{
+	display: inline-block;
+	border-radius: 4px;
+}
+
+.bamboo-pagination > li{
+	display: inline;
+}
+
+.bamboo-pagination > li > a{
+	margin-right: 5px;
+	border-radius: 2px;
+	background-color: #fff;
+	color: #428bca;
+	text-decoration: none;
+	border: 1px solid #ddd;
+	display: inline-block;
+	width: 48px;
+	padding: 6px 0px;
+	text-align: center;
+}
+
+.bamboo-pagination > li:last-child > a{
+	margin-right: 0px;
+}
+
+.bamboo-pagination > li > a:hover, .bamboo-pagination > li > a:focus{
+	background-color: #eee;
+	color: #2a6496;
+	border-color: #ddd;
+}
+
+.bamboo-pagination > .active > a, .bamboo-pagination > .active > a:hover, .bamboo-pagination > .active > a:focus{
+	background-color: #428bca;
+	color: #fff;
+	border-color: #428bca;
+}
+
+.bamboo-pagination > .disabled > a, .bamboo-pagination > .disabled > a:hover, .bamboo-pagination > .disabled > a:focus{
+	background-color: #fff;
+	color: #999;
+	border-color: #ddd;
+	cursor: not-allowed;
+}
+
+
+/*表格样式*/
+.bambooDataTable{
+	table-layout: fixed;
+	margin: 15px 0;
+}
+
+.bambooDataTable th{
+	height: 30px;
+	font-size: 14px;
+	border-top:1px solid #333333;
+	border-bottom:1px solid #333333;
+	background: #3E83C9;
+	color: #ffffff;
+}
+
+.bambooDataTable td{
+	height: 30px;
+	font-size: 14px;
+	border-bottom:1px solid #95BCE2;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.bambooDataTable tr:hover{
+	background: #BCD4EC;
+}
+
+.bambooDataTable a{
+	margin: 0 5px;
+	text-decoration: none;
+}
+
+.bamboo-table-parent{
+	background-color: #95B8E7;
+	/*background-color: #EFF5FF;*/
+}
+
+/*开关按钮样式*/
+.bamboo-switch-btn-label{
+	height: 40px !important; 
+	line-height: 40px !important; 
+	vertical-align: top !important;
+}
+.bamboo-switch-btn{
+	margin-left: 5px;
+	display: inline-block;
+	width: 90px;
+	height: 40px;
+	line-height: 40px;
+	/*background: #00EC00;*/
+	background: #0aa284;
+	border-radius: 30px;
+	position: relative;
+}
+.bamboo-switch-btn span{
+	display: inline-block;
+	width: 50px;
+	height: 38px;
+	line-height: 38px;
+	border-radius: 22px;
+	position: absolute;
+	text-align: center;
+	background-color: #fff;
+}
+
+.bamboo-switch-open-btn{
+	left: 50px;
+	border: 1px solid #0aa284;
+}
+
+.bamboo-switch-close-btn{
+	border: 1px solid #ff0000;
+	left: 0px;
+}
+
+/*按钮默认-基础样式*/
+.bamboo-btn{
+	display: inline-block;
+	vertical-align: center;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 3px;
+	text-align: center;
+	border: 1px solid #ccc;
+}
+/*按钮悬浮-基础样式*/
+.bamboo-btn:hover{
+	background: rgba(204, 204, 204, .8);
+	color: #39f !important;
+}
+
+
+/*按钮默认-查询表单中的样式*/
+.bamboo-form-tool-btn{
+	vertical-align: top;
+	border: 1px solid #08c;
+}
+/*按钮悬浮-查询表单中的样式*/
+.bamboo-form-tool-btn:hover{
+	/*background-color: #08c;*/
+	background: rgba(0, 136, 204, .8);
+	color: #fff !important;
+}
+
+
+/*按钮-工具栏样式*/
+.bamboo-toolbar-btn{
+	width: 60px;
+	margin-right: 5px;
+	border: 1px solid #73c997;
+}
+/*按钮悬浮-工具栏样式*/
+.bamboo-toolbar-btn:hover{
+	/*background-color: #73c997;*/
+	background: rgba(115, 201, 151, .8);
+	color: #ff0 !important;
+}
+
+
+/*弹出框样式*/
+.bamboo-form{
+	width: 600px;
+	margin: 0 auto;
+	font-size: 16px;
+}
+
+.bamboo-form div{
+	margin: 0 20px;
+	padding: 5px;
+}
+
+.bamboo-form div>label:first-child{
+	display: inline-block;
+	vertical-align: middle;
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+}
+
+.bamboo-form input[type=text]{
+	width: 300px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 5px;
+	padding: 0px;
+}
+
+.bamboo-form select{
+	width: 300px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 5px;
+}
+/*隐藏行*/
+.bamboo-form-hidden-row{
+	display: none;
+}
+
+
+/*公用部分*/
+.bamboo-horizon{
+	display: inline-block;
+	vertical-align: center;
+}
+
+.bamboo-column{
+	margin-right: 15px;
+}
+
+.bamboo-even{
+	background: #ffffff none repeat scroll 0 0;
+}
+
+.bamboo-odd{
+	background: #ECF6FC none repeat scroll 0 0;
+}
+
+/*查询条件*/
+.bamboo-query-tool select{
+	width: 150px;
+	height: 30px;	
+	line-height: 30px;
+}
+
+.bamboo-query-tool input[type=text]{
+	width: 80px;
+	height: 28px;	
+	line-height: 28px;
+}
