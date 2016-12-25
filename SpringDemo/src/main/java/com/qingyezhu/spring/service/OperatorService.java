@@ -10,6 +10,10 @@ public class OperatorService {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	final String OPERATOR = "admin";
+	//Spring要求存在一个无参构造方法
+	//AOP要求无参构造方法的级别不能是private
+	OperatorService(){
+	}
 	public void operator(Long id){
 		logger.info("operator: id={}, operator={}", id, OPERATOR);
 	}
