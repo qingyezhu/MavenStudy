@@ -56,4 +56,5 @@ $(function(){
 			}
 		}]
 	});
+	$table.BambooDataTable('reload');
 });

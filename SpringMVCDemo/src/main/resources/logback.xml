@@ -26,7 +26,7 @@
 		<appender-ref ref="CONSOLE" />
 	</root>
 	
-	<logger name="com.qingyezhu.springmvc" additivity="false">
+	<logger name="com.qingyezhu.springmvc" additivity="true">
 		<level value="info" />
         <appender-ref ref="qingyezhu-springmvc" />
 	</logger>
